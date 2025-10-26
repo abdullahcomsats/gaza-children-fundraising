@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Hope for Gaza Children</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/feather-icons@4.29.0/dist/feather.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <i data-feather="heart" class="me-2"></i>Hope for Gaza
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="impact.html">Impact</a>
+                    </li>
+                </ul>
+                <a href="donate.html" class="btn btn-warning fw-bold px-4">
+                    <i data-feather="heart" class="me-2"></i>Donate Again
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Thank You Hero Section -->
+    <section class="py-5 bg-success text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="mb-4">
+                        <div class="bg-white rounded-circle p-4 d-inline-block">
+                            <i data-feather="check-circle" class="text-success" style="width: 48px; height: 48px;"></i>
+                        </div>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-4">Thank You!</h1>
+                    <p class="lead mb-4">
+                        Your generous donation has been successfully processed. You're making a real difference 
+                        in the lives of children in Gaza.
+                    </p>
+                    
+                    <!-- Test System Reminder -->
+                    <div class="alert alert-warning">
+                        <i data-feather="info" class="me-2"></i>
+                        <strong>Test System Confirmation:</strong> This was a demonstration transaction for academic purposes. 
+                        No real payment was processed, but your support for this cause is genuinely appreciated.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transaction Details -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0 fw-bold">
+                                <i data-feather="file-text" class="me-2"></i>Transaction Details
+                            </h4>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold text-muted">Transaction ID</label>
+                                        <p class="mb-0" id="transactionId">Loading...</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold text-muted">Donor Name</label>
+                                        <p class="mb-0" id="donorName">Loading...</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold text-muted">Email</label>
+                                        <p class="mb-0" id="donorEmail">Loading...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold text-muted">Donation Amount</label>
+                                        <p class="mb-0 h4 text-success" id="donationAmount">Loading...</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold text-muted">Date & Time</label>
+                                        <p class="mb-0" id="donationDate">Loading...</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold text-muted">Country</label>
+                                        <p class="mb-0" id="donorCountry">Loading...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4" id="donorMessageSection" style="display: none;">
+                                <label class="form-label fw-bold text-muted">Your Message</label>
+                                <div class="bg-light p-3 rounded">
+                                    <p class="mb-0 fst-italic" id="donorMessage"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Visualization -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold mb-4">Your Impact</h2>
+                        <p class="lead text-muted">
+                            Here's how your donation will help children in Gaza
+                        </p>
+                    </div>
+                    
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <div id="impactVisualization">
+                                <!-- Impact details will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updated Progress -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold mb-4">Updated Campaign Progress</h2>
+                        <p class="text-muted">Your donation has helped us get closer to our goal!</p>
+                    </div>
+                    
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-3 text-center">
+                                    <div class="progress-circle" id="progressCircle">
+                                        <div class="progress-text">
+                                            <span class="percentage" id="progressPercentage">0%</span>
+                                            <small class="d-block text-muted">of goal</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <h4 class="fw-bold text-primary mb-1" id="totalRaised">£0</h4>
+                                            <small class="text-muted">Raised</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="fw-bold text-success mb-1" id="donorCount">0</h4>
+                                            <small class="text-muted">Donors</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="fw-bold text-warning mb-1">$500</h4>
+                                            <small class="text-muted">Goal</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donor Survey Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="fw-bold mb-4">Help Us Improve</h2>
+                    <p class="lead mb-4">
+                        Your feedback is valuable for our university project. Please take a moment to share 
+                        your experience with our fundraising campaign.
+                    </p>
+                    
+                    <div class="card bg-white text-dark">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">Quick Survey</h5>
+                            <p class="mb-4">
+                                Help us understand what motivated your donation and how we can improve our campaign.
+                                This feedback will be used for academic evaluation and future improvements.
+                            </p>
+                            
+                            <button type="button" class="btn btn-primary btn-lg" id="surveyBtn">
+                                <i data-feather="external-link" class="me-2"></i>
+                                Take 2-Minute Survey
+                            </button>
+                            
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i data-feather="shield" class="me-1"></i>
+                                    Your responses are anonymous and used for academic purposes only
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share & Social Proof -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold mb-4">Spread the Word</h2>
+                        <p class="lead text-muted">
+                            Help us reach more donors by sharing our cause with your network
+                        </p>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="bg-primary rounded-circle p-3 mb-3 d-inline-block">
+                                        <i data-feather="share-2" class="text-white"></i>
+                                    </div>
+                                    <h5 class="fw-bold mb-3">Share Our Mission</h5>
+                                    <p class="mb-4">
+                                        Tell your friends and family about our fundraising campaign for Gaza children.
+                                    </p>
+                                    <button type="button" class="btn btn-outline-primary" onclick="shareWebsite()">
+                                        <i data-feather="share" class="me-2"></i>Share Website
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="bg-success rounded-circle p-3 mb-3 d-inline-block">
+                                        <i data-feather="users" class="text-white"></i>
+                                    </div>
+                                    <h5 class="fw-bold mb-3">Join Our Community</h5>
+                                    <p class="mb-4">
+                                        Stay updated on our progress and the impact of your donation.
+                                    </p>
+                                    <a href="impact.html" class="btn btn-outline-success">
+                                        <i data-feather="eye" class="me-2"></i>View Impact
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="fw-bold mb-4">What Happens Next?</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="bg-primary rounded-circle p-3 mb-3 d-inline-block">
+                                        <span class="text-white fw-bold">1</span>
+                                    </div>
+                                    <h6 class="fw-bold mb-2">Record Keeping</h6>
+                                    <p class="text-muted mb-0 small">
+                                        Your donation is logged in our transparent tracking system for academic evaluation
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="bg-success rounded-circle p-3 mb-3 d-inline-block">
+                                        <span class="text-white fw-bold">2</span>
+                                    </div>
+                                    <h6 class="fw-bold mb-2">Progress Updates</h6>
+                                    <p class="text-muted mb-0 small">
+                                        Watch our campaign progress and see how your contribution helps reach our goal
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body p-4 text-center">
+                                    <div class="bg-warning rounded-circle p-3 mb-3 d-inline-block">
+                                        <span class="text-white fw-bold">3</span>
+                                    </div>
+                                    <h6 class="fw-bold mb-2">Impact Report</h6>
+                                    <p class="text-muted mb-0 small">
+                                        Receive updates on how funds are being used to help children in Gaza
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a href="index.html" class="btn btn-primary btn-lg me-3">
+                            <i data-feather="home" class="me-2"></i>Return Home
+                        </a>
+                        <a href="donate.html" class="btn btn-outline-warning btn-lg">
+                            <i data-feather="heart" class="me-2"></i>Donate Again
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="fw-bold mb-3">Hope for Gaza Children</h5>
+                    <p class="mb-3">
+                        A university fundraising project dedicated to supporting children in Gaza through 
+                        transparent and respectful humanitarian aid.
+                    </p>
+                    <div class="alert alert-warning">
+                        <small>
+                            <i data-feather="info" class="me-2"></i>
+                            <strong>Academic Project Disclaimer:</strong> This is a university project for the 
+                            International Fundraising & Digital Campaign module. All donations are processed 
+                            through secure channels and directed to legitimate humanitarian organizations.
+                        </small>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
+                        <li><a href="donate.html" class="text-white-50 text-decoration-none">Donate</a></li>
+                        <li><a href="impact.html" class="text-white-50 text-decoration-none">Impact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Contact</h6>
+                    <p class="text-white-50 mb-1">University Project</p>
+                    <p class="text-white-50 mb-1">International Fundraising Module</p>
+                    <p class="text-white-50">Ms. Saleena Gul - Course Instructor</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-white-50">&copy; 2025 Hope for Gaza Children - University Project</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-white-50">
+                        <i data-feather="shield" class="me-1"></i>
+                        Secure & Transparent Fundraising
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.29.0/dist/feather.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            setupThankYouPage();
+            updateDonationProgress();
+            setupSurveyButton();
+        });
+
+        // Share website function
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Hope for Gaza Children - University Fundraising Project',
+                    text: 'Support children in Gaza through this transparent university fundraising campaign.',
+                    url: window.location.origin
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const url = window.location.origin;
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Website URL copied to clipboard! Share it with your friends and family.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
