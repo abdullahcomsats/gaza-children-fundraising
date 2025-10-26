@@ -522,5 +522,24 @@
             });
         });
     </script>
+
+    <!-- Donation Success Popup Modal -->
+    <div id="donationSuccessModal" class="donation-success-overlay" style="display: none;">
+        <div class="donation-success-popup">
+            <div class="donation-success-icon">
+                <i data-feather="check-circle"></i>
+            </div>
+            <h2 class="donation-success-title">Thank You!</h2>
+            <p class="donation-success-message">Your generous donation has been received and will make a real difference in the lives of Gaza children.</p>
+            <div class="donation-success-amount">
+                <span>Donation Amount: </span>
+                <strong id="donationAmount">$0</strong>
+            </div>
+            <div class="donation-success-buttons">
+                <button class="btn btn-primary" onclick="closeDonationModal()">Continue</button>
+                <button class="btn btn-outline-primary" onclick="shareOnSocial()">Share</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

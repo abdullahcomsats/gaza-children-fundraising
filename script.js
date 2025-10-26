@@ -371,8 +371,13 @@ async function processDonation(donationData) {
             window.dataLayer.push({ event: 'donation_success', amount: parseFloat(donationData.amount) });
         }
 
-        // Redirect to thank you page
-        window.location.href = 'thankyou.html';
+        // Show donation success popup
+        showDonationSuccessModal(donationData.amount);
+
+        // Redirect to thank you page after a delay
+        setTimeout(() => {
+            window.location.href = 'thankyou.html';
+        }, 3000);
 
     } catch (error) {
         console.error('Error processing donation:', error);
@@ -591,6 +596,53 @@ document.addEventListener('DOMContentLoaded', function() {
         feather.replace();
     }
 });
+
+// Donation Success Modal Functions
+function showDonationSuccessModal(amount) {
+    const modal = document.getElementById('donationSuccessModal');
+    const amountElement = document.getElementById('donationAmount');
+    
+    if (modal && amountElement) {
+        amountElement.textContent = `$${amount}`;
+        modal.style.display = 'flex';
+        
+        // Initialize feather icons for the modal
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+        
+        // Auto-close after 5 seconds if user doesn't interact
+        setTimeout(() => {
+            if (modal.style.display === 'flex') {
+                closeDonationModal();
+            }
+        }, 5000);
+    }
+}
+
+function closeDonationModal() {
+    const modal = document.getElementById('donationSuccessModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function shareOnSocial() {
+    const text = "I just donated to help Gaza children! Join me in making a difference.";
+    const url = window.location.origin;
+    
+    if (navigator.share) {
+        navigator.share({
+            title: 'Hope for Gaza Children',
+            text: text,
+            url: url
+        });
+    } else {
+        // Fallback to Twitter share
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+        window.open(twitterUrl, '_blank');
+    }
+}
 
 // Export functions for testing
 if (typeof module !== 'undefined' && module.exports) {
